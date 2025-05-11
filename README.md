@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+## 1단계
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 🎯 목표
 
-Currently, two official plugins are available:
+"입력 → 출력"만 존재하는 순수 함수를 직접 작성
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+객체/배열을 직접 변경하지 않고 불변성을 유지하는 방법 습득
 
-## Expanding the ESLint configuration
+자바스크립트 배열 함수인 map, filter, reduce를 함수형 스타일로 활용
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**미션1-1. 순수 함수 구현하기**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+구현 조건
+- 동일한 입력은 항상 동일한 출력을 가져야 함
+- 외부 변수 사용 금지 (예: console.log, Math.random(), Date.now()는 X)
+- 구현 사항은 App.tsx에 넣어서 결과확인하기.
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- [ ] add(a, b) → 두 수를 더해 결과를 반환 (부작용 없이)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [ ] multiply(a, b) → 곱셈 순수 함수
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- [ ] isEven(n) → 짝수인지 확인하는 순수 함수
+
+**미션 1-2. 불변성 실습 (객체/배열)**
+
+- [ ] 객체를 직접 수정하지 않고, 새로운 객체로 반환
+
+- [ ] 원본 배열을 변경하지 않고 항목을 추가
+
+**미션 1-3: map / filter / reduce 활용**
+
+- [ ] 숫자 배열에서 짝수만 필터링하고 제곱해서 합산
+
+---
+
+### 구현 예정 순서
+
+1단계: 순수 + 불변성
+
+2단계: 함수 조합 (pipe / curry)
+
+3단계: 상태 조작 로직을 함수화
+
+4단계: reduce 중심 사고
+
+5단계: 게으른 평가 (제너레이터)
+
+6단계: 안전성 확보 (Option / Either)
+
+7단계: 비동기 파이프라인
+
+8단계: TodoApp에 통합
