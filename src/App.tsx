@@ -1,6 +1,6 @@
 import './App.css';
 import { add } from './lib/add';
-import { addItem } from './lib/arr';
+import { addItem, sumOfSquaredEvens } from './lib/arr';
 import { isEven } from './lib/isEven';
 import { multiply } from './lib/multiply';
 import { updateUserName } from './lib/obj';
@@ -26,6 +26,10 @@ function App() {
   console.log(
     `기존 배열: ${numberList}, 신규 요소를 추가한 새 배열 ${newNumberList}`
   );
+
+  const numbers = [1, 2, 4];
+  const sumResult = sumOfSquaredEvens(numbers);
+  console.log(sumResult);
 
   return (
     <div>
