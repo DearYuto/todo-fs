@@ -1,9 +1,9 @@
 import './App.css';
-import { add } from './lib/add';
-import { addItem, sumOfSquaredEvens } from './lib/arr';
-import { isEven } from './lib/isEven';
-import { multiply } from './lib/multiply';
-import { updateUserName } from './lib/obj';
+import { add } from './lib/mission1/add';
+import { addItem, sumOfSquaredEvens } from './lib/mission1/arr';
+import { isEven } from './lib/mission1/isEven';
+import { multiply } from './lib/mission1/multiply';
+import { updateUserName } from './lib/mission1/obj';
 
 function App() {
   console.log(`순수 함수 add : ${add(1, 1)}`);
