@@ -1,9 +1,10 @@
 import './App.css';
 import { add } from './lib/mission1/add';
 import { addItem, sumOfSquaredEvens } from './lib/mission1/arr';
-import { isEven } from './lib/mission1/isEven';
 import { multiply } from './lib/mission1/multiply';
+import { isEven } from './lib/mission1/isEven';
 import { updateUserName } from './lib/mission1/obj';
+import { withLogging } from './lib/mission2/withLogging';
 
 function App() {
   console.log(`순수 함수 add : ${add(1, 1)}`);
@@ -30,6 +31,20 @@ function App() {
   const numbers = [1, 2, 4];
   const sumResult = sumOfSquaredEvens(numbers);
   console.log(sumResult);
+
+  /**
+   * 미션 2
+   */
+  const double = (x: number) => x * 2;
+  const loggedDouble = withLogging(double);
+  loggedDouble(5);
+
+  const toUpper = (name: string) => name.toUpperCase();
+  const loggedToUpper = withLogging(toUpper);
+  loggedToUpper('yuto');
+
+  const loggedIsEven = withLogging(isEven);
+  loggedIsEven(2);
 
   return (
     <div>
