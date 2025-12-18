@@ -5,6 +5,7 @@ import { multiply } from './lib/mission1/multiply';
 import { isEven } from './lib/mission1/isEven';
 import { updateUserName } from './lib/mission1/obj';
 import { withLogging } from './lib/mission2/withLogging';
+import { curry } from './lib/mission2/curry';
 
 function App() {
   console.log(`순수 함수 add : ${add(1, 1)}`);
@@ -45,6 +46,14 @@ function App() {
 
   const loggedIsEven = withLogging(isEven);
   loggedIsEven(2);
+
+  /**
+   * 미션 2-2 커링
+   */
+
+  const curryResult = curry((a: number, b: number, c: number) => a + b + c);
+
+  console.log(curryResult(2, 3, 5));
 
   return (
     <div>
