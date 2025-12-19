@@ -4,8 +4,9 @@ import { addItem, sumOfSquaredEvens } from './lib/mission1/arr';
 import { multiply } from './lib/mission1/multiply';
 import { isEven } from './lib/mission1/isEven';
 import { updateUserName } from './lib/mission1/obj';
-import { withLogging } from './lib/mission2/withLogging';
-import { curry } from './lib/mission2/curry';
+import { withLogging } from './lib/mission2/2-1/withLogging';
+import { curry } from './lib/mission2/2-2/curry';
+// import { pipe } from './lib/mission2/pipe';
 
 function App() {
   console.log(`순수 함수 add : ${add(1, 1)}`);
@@ -53,7 +54,17 @@ function App() {
 
   const curryResult = curry((a: number, b: number, c: number) => a + b + c);
 
-  console.log(curryResult(2, 3, 5));
+  console.log(curryResult(2)(3)(5));
+
+  /**
+   * 미션 2-3 pipe
+   */
+
+  // const add1 = (n: number) => n + 1;
+  // const square = (n: number) => n * n;
+
+  // const pipeline = pipe(add1, double, square);
+  // console.log(`[pipe] ${pipeline(2)}`);
 
   return (
     <div>
