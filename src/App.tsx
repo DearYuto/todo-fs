@@ -7,6 +7,7 @@ import { updateUserName } from './lib/mission1/obj';
 import { withLogging } from './lib/mission2/2-1/withLogging';
 import { curry } from './lib/mission2/2-2/curry';
 import { pipe } from './lib/mission2/2-3/pipe';
+import { compose } from './lib/mission2/2-4/compose';
 
 function App() {
   console.log(`순수 함수 add : ${add(1, 1)}`);
@@ -65,6 +66,13 @@ function App() {
 
   const pipeline = pipe(add1, double, square);
   console.log(`[pipe] ${pipeline(2)}`);
+
+  /*
+   * 미션 2-4 compose
+   *
+   */
+  const composed = compose(square, double, add1);
+  console.log(`[composed] ${composed(2)}`); // square(double(add1(2))) = 36
 
   return (
     <div>
