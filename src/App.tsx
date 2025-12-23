@@ -9,23 +9,16 @@ import { curry } from './lib/mission2/2-2/curry';
 import { pipe } from './lib/mission2/2-3/pipe';
 import { compose } from './lib/mission2/2-4/compose';
 import { updateIn } from './lib/mission3/3-1/updateIn';
+import updateAt from './lib/mission3/3-2/updateAt';
 
 function App() {
   /**
-   * 미션 3-1 updateIn
+   * 3-2 updateAt
    */
-
-  const user2 = {
-    name: 'Alice',
-    address: {
-      city: 'Seoul',
-      zipCode: '12345',
-    },
-  };
-  const updated = updateIn(user2, ['address', 'city'], () => 'Busan');
-  console.log(updated.address.city); // 'Busan'
-  console.log(user2.address.city); // 'Seoul' (원본 유지)
-
+  const numbers = [1, 2, 3, 4, 5];
+  const updated = updateAt(numbers, 2, (n) => n * 10);
+  console.log(updated); // [1, 2, 30, 4, 5]
+  console.log(numbers); // [1, 2, 3, 4, 5]
   return (
     <div>
       <h1>Hello World</h1>
@@ -98,3 +91,17 @@ export default App;
 //  */
 // const composed = compose(square, double, add1);
 // console.log(`[composed] ${composed(2)}`); // square(double(add1(2))) = 36
+/**
+ * 미션 3-1 updateIn
+ */
+
+// const user2 = {
+//   name: 'Alice',
+//   address: {
+//     city: 'Seoul',
+//     zipCode: '12345',
+//   },
+// };
+// const updated = updateIn(user2, ['address', 'city'], () => 'Busan');
+// console.log(updated.address.city); // 'Busan'
+// console.log(user2.address.city); // 'Seoul' (원본 유지)
