@@ -10,15 +10,26 @@ import { pipe } from './lib/mission2/2-3/pipe';
 import { compose } from './lib/mission2/2-4/compose';
 import { updateIn } from './lib/mission3/3-1/updateIn';
 import updateAt from './lib/mission3/3-2/updateAt';
+import updateWhere from './lib/mission3/3-3/updateWhere';
 
 function App() {
   /**
-   * 3-2 updateAt
+   * 3-3 updateWhere
    */
-  const numbers = [1, 2, 3, 4, 5];
-  const updated = updateAt(numbers, 2, (n) => n * 10);
-  console.log(updated); // [1, 2, 30, 4, 5]
-  console.log(numbers); // [1, 2, 3, 4, 5]
+  const users = [
+    { id: 1, name: 'Alice', active: true },
+    { id: 2, name: 'Bob', active: false },
+    { id: 3, name: 'Charlie', active: true },
+  ];
+
+  const updated = updateWhere(
+    users,
+    (user) => user.active,
+    (user) => ({ ...user, name: user.name.toUpperCase() })
+  );
+  console.log(updated[0].name); // 'ALICE'
+  console.log(updated[1].name); // 'Bob' (active false이므로 변경 안됨)
+
   return (
     <div>
       <h1>Hello World</h1>
@@ -105,3 +116,11 @@ export default App;
 // const updated = updateIn(user2, ['address', 'city'], () => 'Busan');
 // console.log(updated.address.city); // 'Busan'
 // console.log(user2.address.city); // 'Seoul' (원본 유지)
+
+/**
+ * 3-2 updateAt
+ */
+const numbers = [1, 2, 3, 4, 5];
+const updated = updateAt(numbers, 2, (n) => n * 10);
+console.log(updated); // [1, 2, 30, 4, 5]
+console.log(numbers); // [1, 2, 3, 4, 5]
