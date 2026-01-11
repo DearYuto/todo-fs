@@ -11,24 +11,15 @@ import { compose } from './lib/mission2/2-4/compose';
 import { updateIn } from './lib/mission3/3-1/updateIn';
 import updateAt from './lib/mission3/3-2/updateAt';
 import updateWhere from './lib/mission3/3-3/updateWhere';
+import { mapWithReduce } from './lib/mission4/4-1/mapWithReduce';
 
 function App() {
   /**
-   * 3-3 updateWhere
+   * 4-1
    */
-  const users = [
-    { id: 1, name: 'Alice', active: true },
-    { id: 2, name: 'Bob', active: false },
-    { id: 3, name: 'Charlie', active: true },
-  ];
-
-  const updated = updateWhere(
-    users,
-    (user) => user.active,
-    (user) => ({ ...user, name: user.name.toUpperCase() })
-  );
-  console.log(updated[0].name); // 'ALICE'
-  console.log(updated[1].name); // 'Bob' (active false이므로 변경 안됨)
+  const numbers = [1, 2, 3, 4, 5];
+  const doubled = mapWithReduce(numbers, (n) => n * 2);
+  console.log(doubled); // [2, 4, 6, 8, 10] false이므로 변경 안됨)
 
   return (
     <div>
