@@ -1,26 +1,13 @@
 import './App.css';
-import { add } from './lib/mission1/add';
-import { addItem, sumOfSquaredEvens } from './lib/mission1/arr';
-import { multiply } from './lib/mission1/multiply';
-import { isEven } from './lib/mission1/isEven';
-import { updateUserName } from './lib/mission1/obj';
-import { withLogging } from './lib/mission2/2-1/withLogging';
-import { curry } from './lib/mission2/2-2/curry';
-import { pipe } from './lib/mission2/2-3/pipe';
-import { compose } from './lib/mission2/2-4/compose';
-import { updateIn } from './lib/mission3/3-1/updateIn';
-import updateAt from './lib/mission3/3-2/updateAt';
-import updateWhere from './lib/mission3/3-3/updateWhere';
-import { mapWithReduce } from './lib/mission4/4-1/mapWithReduce';
+import { filterWithReduce } from './lib/mission4/4-2/filterWithReduce';
 
 function App() {
   /**
-   * 4-1
+   * 4-2
    */
-  const numbers = [1, 2, 3, 4, 5];
-  const doubled = mapWithReduce(numbers, (n) => n * 2);
-  console.log(doubled); // [2, 4, 6, 8, 10] false이므로 변경 안됨)
-
+  const numbers = [1, 2, 3, 4, 5, 6];
+  const evens = filterWithReduce(numbers, (n) => n % 2 === 0);
+  console.log(evens); // [2, 4, 6]
   return (
     <div>
       <h1>Hello World</h1>
@@ -29,89 +16,3 @@ function App() {
 }
 
 export default App;
-
-// console.log(`순수 함수 add : ${add(1, 1)}`);
-// console.log(`순수 함수 multiply : ${multiply(2, 2)}`);
-// console.log(`순수 함수 isEven : ${isEven(2)}`);
-
-// const user = {
-//   name: 'Elie',
-//   age: 15,
-// };
-
-// const newUser = updateUserName(user, 'Alice');
-// console.log(
-//   `원본 유저 객체 이름: ${user.name}, 신규 유저 객체: ${newUser.name}`
-// );
-
-// const numberList = [1, 2, 3, 4];
-// const newNumberList = addItem(numberList, 5);
-
-// console.log(
-//   `기존 배열: ${numberList}, 신규 요소를 추가한 새 배열 ${newNumberList}`
-// );
-
-// const numbers = [1, 2, 4];
-// const sumResult = sumOfSquaredEvens(numbers);
-// console.log(sumResult);
-
-// /**
-//  * 미션 2
-//  */
-// const double = (x: number) => x * 2;
-// const loggedDouble = withLogging(double);
-// loggedDouble(5);
-
-// const toUpper = (name: string) => name.toUpperCase();
-// const loggedToUpper = withLogging(toUpper);
-// loggedToUpper('yuto');
-
-// const loggedIsEven = withLogging(isEven);
-// loggedIsEven(2);
-
-// /**
-//  * 미션 2-2 커링
-//  */
-
-// const curryResult = curry((a: number, b: number, c: number) => a + b + c);
-
-// console.log(curryResult(2)(3)(5));
-
-// /**
-//  * 미션 2-3 pipe
-//  */
-
-// const add1 = (n: number) => n + 1;
-// const square = (n: number) => n * n;
-
-// const pipeline = pipe(add1, double, square);
-// console.log(`[pipe] ${pipeline(2)}`);
-
-// /*
-//  * 미션 2-4 compose
-//  *
-//  */
-// const composed = compose(square, double, add1);
-// console.log(`[composed] ${composed(2)}`); // square(double(add1(2))) = 36
-/**
- * 미션 3-1 updateIn
- */
-
-// const user2 = {
-//   name: 'Alice',
-//   address: {
-//     city: 'Seoul',
-//     zipCode: '12345',
-//   },
-// };
-// const updated = updateIn(user2, ['address', 'city'], () => 'Busan');
-// console.log(updated.address.city); // 'Busan'
-// console.log(user2.address.city); // 'Seoul' (원본 유지)
-
-/**
- * 3-2 updateAt
- */
-const numbers = [1, 2, 3, 4, 5];
-const updated = updateAt(numbers, 2, (n) => n * 10);
-console.log(updated); // [1, 2, 30, 4, 5]
-console.log(numbers); // [1, 2, 3, 4, 5]

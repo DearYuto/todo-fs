@@ -308,13 +308,13 @@ transducer 개념의 기초를 이해한다.
 
 **미션 4-1: reduce로 map 구현**
 
-- [ ] mapWithReduce 함수 구현
+- [x] mapWithReduce 함수 구현
 
 **✅ 완료 조건 체크리스트**
 
-- [ ] Array.prototype.reduce만 사용
-- [ ] 일반 map과 동일한 결과 반환
-- [ ] 타입 안전성 확보
+- [x] Array.prototype.reduce만 사용
+- [x] 일반 map과 동일한 결과 반환
+- [x] 타입 안전성 확보
 
 ```ts
 구현 조건
@@ -331,13 +331,13 @@ console.log(doubled); // [2, 4, 6, 8, 10]
 
 **미션 4-2: reduce로 filter 구현**
 
-- [ ] filterWithReduce 함수 구현
+- [x] filterWithReduce 함수 구현
 
 **✅ 완료 조건 체크리스트**
 
-- [ ] Array.prototype.reduce만 사용
-- [ ] 일반 filter와 동일한 결과
-- [ ] 조건 함수를 인자로 받음
+- [x] Array.prototype.reduce만 사용
+- [x] 일반 filter와 동일한 결과
+- [x] 조건 함수를 인자로 받음
 
 ```ts
 구현 조건
