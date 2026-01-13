@@ -19,8 +19,11 @@ export const groupByMap = <T, K>(array: Array<T>, keyFn: (target: T) => K) => {
 /**
  * 객체 사용해서 풀이
  */
-export const groupBy = <T>(array: Array<T>, keyFn: (target: T) => string) => {
-  return array.reduce<Record<string, T[]>>((acc, cur) => {
+export const groupBy = <T>(
+  array: Array<T>,
+  keyFn: (target: T) => PropertyKey
+) => {
+  return array.reduce<Record<PropertyKey, T[]>>((acc, cur) => {
     const key = keyFn(cur);
     if (acc[key] && Array.isArray(acc[key])) {
       acc[key].push(cur);
