@@ -1,13 +1,27 @@
 import './App.css';
-import { filterWithReduce } from './lib/mission4/4-2/filterWithReduce';
+import { groupBy, groupByMap } from './lib/mission4/4-3/groupBy';
 
 function App() {
   /**
-   * 4-2
+   * 4-3
    */
-  const numbers = [1, 2, 3, 4, 5, 6];
-  const evens = filterWithReduce(numbers, (n) => n % 2 === 0);
-  console.log(evens); // [2, 4, 6]
+  const users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 25 },
+  ];
+
+  console.log('map 사용해서 풀어봄');
+  const groupedMap = groupByMap(users, (user) => user.age);
+  console.dir(groupedMap.get(25));
+
+  console.log('일반 객체로');
+  const grouped = groupBy(users, (user) => user.age);
+  console.log(grouped);
+  // {
+  //   25: [{ name: 'Alice', age: 25 }, { name: 'Charlie', age: 25 }],
+  //   30: [{ name: 'Bob', age: 30 }]
+  // }
   return (
     <div>
       <h1>Hello World</h1>
