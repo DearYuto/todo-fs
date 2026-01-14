@@ -1,27 +1,15 @@
 import './App.css';
-import { groupBy, groupByMap } from './lib/mission4/4-3/groupBy';
+import { partition } from './lib/mission4/4-4/partition';
 
 function App() {
   /**
-   * 4-3
+   * 4-4
    */
-  const users = [
-    { name: 'Alice', age: 25 },
-    { name: 'Bob', age: 30 },
-    { name: 'Charlie', age: 25 },
-  ];
 
-  console.log('map 사용해서 풀어봄');
-  const groupedMap = groupByMap(users, (user) => user.age);
-  console.dir(groupedMap.get(25));
-
-  console.log('일반 객체로');
-  const grouped = groupBy(users, (user) => user.age);
-  console.log(grouped);
-  // {
-  //   25: [{ name: 'Alice', age: 25 }, { name: 'Charlie', age: 25 }],
-  //   30: [{ name: 'Bob', age: 30 }]
-  // }
+  const numbers = [1, 2, 3, 4, 5, 6];
+  const [evens, odds] = partition(numbers, (n) => n % 2 === 0);
+  console.log(evens); // [2, 4, 6]
+  console.log(odds); // [1, 3, 5]
   return (
     <div>
       <h1>Hello World</h1>
