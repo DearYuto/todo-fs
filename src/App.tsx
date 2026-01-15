@@ -1,15 +1,18 @@
 import './App.css';
-import { partition } from './lib/mission4/4-4/partition';
+import { range } from './lib/mission5/range';
 
 function App() {
   /**
-   * 4-4
+   * 5-1
    */
 
-  const numbers = [1, 2, 3, 4, 5, 6];
-  const [evens, odds] = partition(numbers, (n) => n % 2 === 0);
-  console.log(evens); // [2, 4, 6]
-  console.log(odds); // [1, 3, 5]
+  for (const n of range(1, 5)) {
+    console.log(n); // 1, 2, 3, 4
+  }
+
+  // 배열로 변환
+  const arr = [...range(0, 10)];
+  console.log(arr); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   return (
     <div>
       <h1>Hello World</h1>
