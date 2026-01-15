@@ -393,7 +393,7 @@ console.log(grouped);
 - [x] [true배열, false배열] 튜플 반환
 - [x] reduce 활용
 
-````ts
+```ts
 구현 조건
 - partition(array, predicate) 형태로 동작합니다.
 - predicate가 true인 요소와 false인 요소를 분리합니다.
@@ -404,6 +404,7 @@ const numbers = [1, 2, 3, 4, 5, 6];
 const [evens, odds] = partition(numbers, (n) => n % 2 === 0);
 console.log(evens); // [2, 4, 6]
 console.log(odds);  // [1, 3, 5]
+```
 
 ---
 
@@ -419,14 +420,13 @@ console.log(odds);  // [1, 3, 5]
 
 **미션 5-1: 제너레이터로 range 구현**
 
-- [ ] range 제너레이터 함수 구현
+- [x] range 제너레이터 함수 구현
 
 **✅ 완료 조건 체크리스트**
 
-- [ ] function\* 문법 사용
-- [
-``` ] start부터 end-1까지 숫자 생성
-- [ ] for...of로 순회 가능
+- [x] function\* 문법 사용
+- [x] start부터 end-1까지 숫자 생성
+- [x] for...of로 순회 가능
 
 ```ts
 구현 조건
@@ -443,7 +443,7 @@ for (const n of range(1, 5)) {
 // 배열로 변환
 const arr = [...range(0, 10)];
 console.log(arr); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-````
+```
 
 **미션 5-2: take 구현**
 
