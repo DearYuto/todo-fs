@@ -1,18 +1,17 @@
 import './App.css';
-import { range } from './lib/mission5/range';
+import { range } from './lib/mission5/5-1/range';
+import { take } from './lib/mission5/5-2/take';
 
 function App() {
   /**
-   * 5-1
+   * 5-2
    */
+  const numbers = range(1, Infinity); // 무한 수열
+  console.log(numbers);
+  const first5 = [...take(numbers, 5)];
 
-  for (const n of range(1, 5)) {
-    console.log(n); // 1, 2, 3, 4
-  }
+  console.log(first5); // [1, 2, 3, 4, 5]
 
-  // 배열로 변환
-  const arr = [...range(0, 10)];
-  console.log(arr); // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   return (
     <div>
       <h1>Hello World</h1>
